@@ -1,0 +1,8 @@
+# External tools
+_tools/
+
+# Binary
+/echo-template
+
+# CI
+golangci-report.xml
