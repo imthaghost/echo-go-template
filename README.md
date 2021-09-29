@@ -29,21 +29,21 @@ Prerequisites:
 ```
 
 ### Run static code analysis
-```bash
+```shell
     make lint
 ```
 
 ### Run code coverage
-```bash
+```shell
     make coverage
 ```
 
 ### Run the server
-```bash
+```shell
     ## with Go
     make local
 ```
-```bash
+```shell
     ## with Docker
     make docker.run
 ```
