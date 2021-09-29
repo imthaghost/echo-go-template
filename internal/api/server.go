@@ -16,9 +16,10 @@ type Server struct {
 }
 
 // NewRESTServer creates a new HTTP server with injected services
-func NewRESTServer(db *datastore.Service) *Server {
+func NewRESTServer(db datastore.Service) *Server {
 	return &Server{
 		Echo:          echo.New(),
+		db: db,
 	}
 }
 
@@ -28,6 +29,7 @@ func (s *Server) Start() {
 	// register routes
 	s.UnprotectedRoutes()
 	s.ProtectedRoutes()
+	// Start server
 	// err  := server.Start()
 	// TODO dont use Logger Fatal in Prod - don't panic
 	s.Echo.Logger.Fatal(server.Start(":"+"8080"))

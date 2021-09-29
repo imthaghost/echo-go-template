@@ -39,6 +39,11 @@ install:
 local: mod
 	go run cmd/template/main.go
 
+docker.run: docker.echo
+
+docker.echo:
+	docker build -t echo-template . && docker run -p 8080:8080 echo-template
+
 $(BINARY):
 	go build ${LDFLAGS} -o ${BINARY} ./cmd/template
 

@@ -7,8 +7,5 @@ import (
 
 // LogOut ...
 func (s *Server) LogOut(c echo.Context) error {
-
-
-
 	return c.NoContent(http.StatusOK)
 }

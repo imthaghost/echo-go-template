@@ -4,4 +4,5 @@ package datastore
 type Service interface {
 	Update() error
 	Get() error
+	Connect()
 }

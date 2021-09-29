@@ -8,7 +8,7 @@ func (s *Server) UnprotectedRoutes() {
 
 // ProtectedRoutes will set up all the protected routes
 func (s *Server) ProtectedRoutes() {
-	// Group Routes
+	// Group Routes "v1"
 	v1 := s.Echo.Group("v1/")
 
 	// Book
@@ -23,8 +23,9 @@ func (s *Server) ProtectedRoutes() {
 	// Token
 	v1.POST("/token/renew", s.RenewToken)
 
+	user := v1.Group("/user") // user namespace
 	// User
-	v1.POST("/user/login", s.Login)
-	v1.POST("/user/logout", s.LogOut)
-	v1.POST("/user/signup", s.SignUp)
+	user.POST("/login", s.Login)
+	user.POST("/logout", s.LogOut)
+	user.POST("/signup", s.SignUp)
 }
